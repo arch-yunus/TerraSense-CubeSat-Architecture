@@ -36,7 +36,12 @@ Aşağıdaki yüksek çözünürlüklü görsel, Feza-X'in donanım katmanların
 
 ![Hardware Architecture](assets/hardware_architecture.png)
 
-### B. Master Hidrolik & Elektronik Blok Diyagramı (Full Block Diagram)
+### B. Mekanik Patlatılmış Görünüm (Exploded View)
+Uydunun iç mekanik katmanlarını ve alt sistem yerleşimini gösteren detaylı mühendislik görünümü:
+
+![Exploded View](assets/exploded_view.png)
+
+### C. Master Hidrolik & Elektronik Blok Diyagramı (Full Block Diagram)
 Tüm sensör, eyleyici ve işlemcilerin fiziksel bağlantı haritası:
 
 ```mermaid
