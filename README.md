@@ -3,57 +3,120 @@
 ![TerraSense Banner](assets/banner.png)
 
 # 🛰️ TerraSense: Küp Uydu (CubeSat) Sistem Mimarisi Tasarımı
+### *Milli Uzay Hamlesi Vizyonuyla Geliştirilen 3U Gezgin Platformu*
 
 [![TUA - Astro Hackathon](https://img.shields.io/badge/TUA-Astro_Hackathon-1E3A8A?style=for-the-badge&logo=spaceX)](https://uzay.gov.tr/)
 [![Category - Engineering](https://img.shields.io/badge/Kategori-Mühendislik_ve_Yazılım-F97316?style=for-the-badge)](https://github.com/topics/aerospace)
 [![Level - Advanced](https://img.shields.io/badge/Zorluk-İleri_Seviye-DC2626?style=for-the-badge)](https://github.com/topics/cubesat)
+[![License - MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 </div>
 
 ---
 
 ## 1. 📋 Gerekli Girdiler (Required Inputs)
-Projenin hayata geçirilmesi için temel alınan teknik kısıtlar ve operasyonel girdiler:
-- **Form Faktörü:** 3U CubeSat (10x10x34 cm).
-- **Kütle Limiti:** Maksimum 4.0 kg.
-- **Güç Bütçesi:** Ortalama 15W üretim (GaAs solar hücreler).
-- **Yörünge Parametreleri:** 500 km LEO (Düşük Yer Yörüngesi), Sun-Synchronous.
-- **Görev Amacı:** Yüksek çözünürlüklü multispektral yeryüzü gözlemi.
+**TerraSense**, aşağıdaki teknik ve operasyonel isterleri karşılamak üzere optimize edilmiştir:
+- **Form Faktörü:** 3U Standard CubeSat (10x10x34 cm).
+- **Kütle & Güç:** < 4.0 kg | ~15W Ortalama Üretim.
+- **Yörünge:** 500 km LEO (Sun-Synchronous).
+- **Sensör Kabiliyeti:** 5.0m GSD Multispektral Görüntüleme.
 
 ---
 
 ## 2. 🌟 Yüksek Düzey Özet (High-Level Summary)
-**TerraSense**, modüller arası ısıl izolasyon ve hibrit veri yolu mimarisi ile CubeSat sistemlerindeki performans darboğazlarını çözen yenilikçi bir 3U tasarımıdır. "Milli Uzay Hamlesi" vizyonunu temel alan proje; düşük maliyetli, yüksek güvenilirlikli ve hızlı prototiplenebilir bir uzay platformu sunarak Türkiye'nin uzay ekosistemine katkıda bulunmayı hedefler.
+**TerraSense**, kısıtlı hacim ve enerji bütçesi altında maksimum veri işleme kabiliyeti sunan bir 3U Küp Uydu mimarisidir. Proje; **NASA-cFS** tabanlı uçuş yazılımı, **On-board Edge AI** işleme ve hibrit veri yolu (CAN/SpaceWire) mimarisi ile klasik küp uydu tasarımlarındaki veri darboğazlarını ve ısıl sorunları ortadan kaldırır.
 
 ---
 
 ## 3. 🛠️ Detaylı Çözüm (Detailed Solution)
-Uydunun donanım iç yerleşimi (Hardware Layout), kütle merkezi ve ısıl dengeye göre 3 ana katmanda kurgulanmıştır:
 
-- **Unit 1 - Güç ve Stabilite:** Batarya blokları ve ADCS modülü (Reaksiyon tekerlekleri). En ağır bileşenler olduğu için stabilite için uydunun altına yerleştirilmiştir.
-- **Unit 2 - Komuta ve Veri İşleme:** OBC (Ana Bilgisayar) ve Transceiver kartları. Isıl açıdan en korunaklı bölge olan merkezde konumlandırılmıştır.
-- **Unit 3 - Görev Yükü (Payload):** CMOS sensör ve lens sistemi. Nadir yüzeye (yere bakan) bakacak şekilde en üstte yerleştirilmiştir.
+### A. Donanım ve Mekanik Yerleşim (Hardware Layout)
+Uydu, kütle merkezi ve termal stabilite için üç fonksiyonel modüle (Unit) ayrılmıştır:
 
-*Daha fazla detay için:* [`/hardware-layout`](hardware-layout)
+![Internal Electronics Stack](assets/electronics_stack.png)
+
+1.  **Unit 1 (Güç ve Kontrol):** EPS, Batarya Blokları ve ADCS Reaksiyon Tekerlekleri.
+2.  **Unit 2 (Beyin ve İletişim):** OBC, Transceiver kartları ve Kitle Bellek.
+3.  **Unit 3 (Görev Yükü):** Optik Kamera, Multispektral Sensörler ve GNSS Anteni.
 
 ---
 
-## 4. 🛰️ Teknik Yaklaşım (Technical Approach)
-Haberleşme mimarisi; sistem sürekliliği ve yüksek hızlı veri aktarımı için iki katmanlı olarak tasarlanmıştır:
+## 4. ⚡ Elektronik Mimari ve Donanım Protokolleri
 
-- **Dahili Haberleşme:** Kritik sistem telemetrisi için **CAN Bus**, yüksek boyutlu görüntü verileri için ise **SpaceWire/LVDS** protokolleri kullanılarak veri çakışmaları engellenmiştir.
-- **Harici Haberleşme:** TT&C (Telemetri ve Komuta) için güvenilir **UHF/VHF** bandı, bilimsel veri indirme (downlink) için ise yüksek hızlı **S-Band** linki tercih edilmiştir.
+### A. Güç Dağıtım Mimarisi (Power Distribution)
+TerraSense, çift seviyeli regüle edilmiş bir güç hattı kullanır:
 
-*Teknik rapor ve hesaplamalar için:* [`/communication-arch`](communication-arch)
+```mermaid
+graph TD
+    Solar[Solar Paneller - GaAs] --> MPPT[EPS - MPPT Controller]
+    MPPT <--> Batt[40Wh Li-Ion Battery]
+    MPPT --> Reg33[3.3V Bus - OBC/Sensors]
+    MPPT --> Reg5[5V Bus - ADCS/Payload]
+    MPPT --> Unreg[12V Unreg - Comms Amp]
+```
+
+### B. Veri Yolu ve Protokol Hiyerarşisi
+```mermaid
+graph LR
+    subgraph "Control Layer (CAN Bus)"
+        OBC <--> EPS
+        OBC <--> ADCS
+        OBC <--> Comms
+    end
+    subgraph "Data Layer (SpaceWire)"
+        Payload -->|Raw Data| MassStorage
+        MassStorage -->|Processed Info| OBC
+    end
+```
+
+---
+
+## 🧠 5. Teknik Yaklaşım: İleri Seviye Özellikler
+
+### A. Kenar Yapay Zeka (On-board Edge AI)
+TerraSense, görüntüleri uzayda işleyerek sadece değerli verileri indirmeyi sağlar:
+
+![Edge AI Processing](assets/edge_ai.png)
+
+- **Bulut Eleme:** %70+ bulutlu görüntülerin elenmesi.
+- **ROI Tespiti:** Gemi, araç veya arazi değişikliği tespiti.
+- **Donanım:** Integrated NPU (Neural Processing Unit) @ 1.5W Peak.
+
+### B. Uçuş Yazılım Yığını (NASA-cFS)
+Uydunun yazılım mimarisi, yüksek modülerlik için **NASA Core Flight System (cFS)** tabanlıdır:
+- **Hata Yönetimi:** Reset App -> Reset Processor -> Power Cycle döngüsü.
+- **RTOS:** FreeRTOS üzerinden gerçek zamanlı görev yönetimi.
+
+---
+
+## ⚠️ 6. Güvenilirlik ve Risk Yönetimi (FMEA)
+- **OBC SEU Koruması:** ECC RAM ve Watchdog Timer.
+- **ADCS Redundancy:** Manyetik Tork Çubukları ile yedekli yönelim kontrolü.
+- **Yazılım Safe Mode:** Düşük enerji durumunda sadece temel haberleşme hattını açık tutan güvenli mod.
+
+---
+
+## 🌍 7. Yer Segmenti ve Operasyonlar (Ground Segment)
+- **MCC:** Python tabanlı PDU kod çözücü ve Grafana izleme arayüzü.
+- **Haberleşme:**
+    - **TT&C:** UHF/VHF (9.6 kbps) - Omni-directional.
+    - **Data Downlink:** S-Band (2.0 Mbps) - High-gain Patch.
+
+---
+
+## 🛡️ 8. Regülasyon ve Uyumluluk
+- **Uzay Çöpü Azaltma:** 500 km yörünge sayesinde <12 yılda doğal re-entry.
+- **ITU Koordinasyonu:** BTK ve IARU üzerinden frekans tescili.
 
 ---
 
 ## 🔗 Bağlantılar & Demos
-*   📽️ **Demo Videosu:** [Drive Linki]
+*   📽️ **Tanıtım Videosu:** [Drive Linki]
 *   📊 **Proje Sunumu:** [Drive Linki]
-*   📂 **GitHub Kaynak Kod:** [Bu Repo Linki]
+*   📂 **Tüm Çıktılar Arşivi:** [Drive/GitHub Ana Klasör]
 
 ---
 <div align="center">
-  Developed for <b>TUA Astro Hackathon 2026</b>
+  Developed for <b>TUA Astro Hackathon 2026</b><br/>
+  <i>"Gökyüzünün ötesindeki vizyoner fikirler için."</i>
 </div>
