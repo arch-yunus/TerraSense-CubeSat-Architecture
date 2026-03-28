@@ -110,6 +110,14 @@ Uydunun yazılım mimarisi, yüksek modülerlik için **NASA Core Flight System 
 
 ---
 
+## 🛠️ 9. Somut Çıktılar ve Yazılım Araçları
+Proje, sadece mimari bir döküman değil, aynı zamanda operasyonel araçlar da sunar:
+- **[Telemetri Sözlüğü](communication-arch/telemetry_dictionary.json):** Makine tarafından okunabilir, bayt-seviyesinde sistem tanımları.
+- **[Yörünge Hesaplayıcı](docs/pass_calculator.py):** Yer istasyonu geçişlerini tahmin eden Python tabanlı araç.
+- **[Görev Kontrol Paneli Mockup](assets/mission_dashboard.html):** Yer segmenti operasyonları için görsel ve interaktif arayüz tasarımı.
+
+---
+
 ## 🔗 Bağlantılar & Demos
 *   📽️ **Tanıtım Videosu:** [Drive Linki]
 *   📊 **Proje Sunumu:** [Drive Linki]

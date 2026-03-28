@@ -1,0 +1,32 @@
+{
+  "mission": "TerraSense CubeSat",
+  "version": "1.0.0",
+  "subsystems": {
+    "EPS": {
+      "id": "0x100",
+      "telemetry": [
+        {"name": "v_batt", "offset": 0, "size": 4, "type": "float32", "unit": "V", "desc": "Battery Voltage"},
+        {"name": "i_batt", "offset": 4, "size": 4, "type": "float32", "unit": "A", "desc": "Battery Current"},
+        {"name": "temp_batt", "offset": 8, "size": 4, "type": "float32", "unit": "C", "desc": "Battery Temperature"},
+        {"name": "status_flags", "offset": 12, "size": 1, "type": "uint8", "unit": "bitmask", "desc": "Charge/Discharge Status"}
+      ]
+    },
+    "ADCS": {
+      "id": "0x110",
+      "telemetry": [
+        {"name": "quat_q0", "offset": 0, "size": 4, "type": "float32", "unit": "unitless", "desc": "Quaternion Q0"},
+        {"name": "quat_q1", "offset": 4, "size": 4, "type": "float32", "unit": "unitless", "desc": "Quaternion Q1"},
+        {"name": "quat_q2", "offset": 8, "size": 4, "type": "float32", "unit": "unitless", "desc": "Quaternion Q2"},
+        {"name": "quat_q3", "offset": 12, "size": 4, "type": "float32", "unit": "unitless", "desc": "Quaternion Q3"}
+      ]
+    },
+    "OBC": {
+      "id": "0x120",
+      "telemetry": [
+        {"name": "uptime", "offset": 0, "size": 4, "type": "uint32", "unit": "s", "desc": "Systems Uptime"},
+        {"name": "cpu_load", "offset": 4, "size": 1, "type": "uint8", "unit": "%", "desc": "CPU Utilization"},
+        {"name": "mem_free", "offset": 5, "size": 4, "type": "uint32", "unit": "kb", "desc": "Free RAM"}
+      ]
+    }
+  }
+}
