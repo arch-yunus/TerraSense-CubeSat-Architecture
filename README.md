@@ -119,7 +119,21 @@ graph TD
 
 ---
 
-## 🧠 5. Teknik Yaklaşım: İleri Seviye Özellikler
+## 🏗️ 5. Stratejik Tasarım Avantajı: Gövde Entegre vs Açılır Paneller
+Feza-X, ISISpace gibi sistemlerde kullanılan "açılır-kapanır" (deployable) güneş panelleri yerine **Gövdeye Entegre (Body-Mounted)** panelleri tercih ederek kritik mimari avantajlar sağlar:
+
+| Özellik | Açılır Panel (Deployable) | Feza-X (Body-Mounted) | Avantaj |
+| :--- | :--- | :--- | :--- |
+| **Atmosferik Sürüklenme** | Yüksek (Geniş Yüzey) | **Düşük (Aerodinamik)** | Daha Uzun Yörünge Ömrü |
+| **Yakıt Tüketimi** | Yüksek (Momentum Değişimi) | **Minimum (Stabil Kütle)** | %25+ Yakıt Tasarrufu |
+| **Mekanik Risk** | Açılmama Riski Mevcut | **Sıfır Mekanik Risk** | %100 Güvenilirlik |
+| **Kontrol Karmaşıklığı** | Esnek Yapı Titreşimi | **Rijit Gövde Yapısı** | Kolay ADCS Kontrolü |
+
+*   **Sonuç:** Feza-X, deployable sistemlerin neden olduğu "sürüklenme ve yüksek yakıt tüketimi" engellerini ekarte ederek 500km yörüngede maksimum verimlilik sunar.
+
+---
+
+## 🧠 6. Teknik Yaklaşım: İleri Seviye Özellikler
 
 ### A. Kenar Yapay Zeka (On-board Edge AI)
 Feza-X, görüntüleri uzayda işleyerek sadece değerli verileri indirmeyi sağlar:
