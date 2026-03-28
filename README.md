@@ -1,6 +1,6 @@
 <div align="center">
 
-![Feza-X Banner](assets/banner.png)
+![Feza-X Banner](assets/feza_x_banner.png)
 
 # 🛰️ Feza-X: Küp Uydu (CubeSat) Sistem Mimarisi Tasarımı
 ### *Milli Uzay Hamlesi Vizyonuyla Geliştirilen 3U Gezgin Platformu*
