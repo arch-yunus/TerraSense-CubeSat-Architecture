@@ -1,7 +1,7 @@
-# 🛰️ TerraSense: Teknik Yaklaşım ve Mimari Metodoloji
+# 🛰️ Feza-X: Teknik Yaklaşım ve Mimari Metodoloji
 
 ## 1. Dahili Veri Yolu Mimarisi (Internal Data Bus)
-TerraSense, "Dual-Bus" yaklaşımını benimser:
+Feza-X, "Dual-Bus" yaklaşımını benimser:
 - **Kontrol Hattı (CAN Bus):** Tüm alt sistemlerin (EPS, ADCS, OBC) düşük gecikmeli haberleşmesi için kullanılır. Hata toleransı yüksektir.
 - **Veri Hattı (SpaceWire):** Sadece optik sensör ve kitle bellek (Mass Storage) arasında çalışır. Ana işlemciyi görüntü işleme sırasında yormaz.
 

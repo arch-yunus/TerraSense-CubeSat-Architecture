@@ -1,7 +1,7 @@
-# 🛸 TerraSense: Detaylı Sistem Tasarım Raporu (v1.1)
+# 🛸 Feza-X: Detaylı Sistem Tasarım Raporu (v1.1)
 
 ## 1. Giriş ve Amaç
-Bu rapor, TerraSense 3U Küp Uydu projesinin mimari detaylarını, çalışma prensiplerini ve Milli Uzay Hamlesi vizyonu doğrultusunda geliştirilen inovatif yaklaşımları içermektedir.
+Bu rapor, Feza-X 3U Küp Uydu projesinin mimari detaylarını, çalışma prensiplerini ve Milli Uzay Hamlesi vizyonu doğrultusunda geliştirilen inovatif yaklaşımları içermektedir.
 
 ## 2. Problem ve İhtiyaç Analizi
 Mevcut Küp Uydu sistemlerinde karşılaşılan iki ana sorun:
@@ -23,4 +23,4 @@ Bu proje, küresel uzay ekosistemindeki standartları takip eder:
 - **OpenSatStack** mimari referansları.
 
 ## 5. Sonuç
-TerraSense, modüler yapısı ve optimize edilmiş veri yolu ile yüksek çözünürlüklü görüntüleme görevleri için düşük maliyetli ve yüksek performanslı bir temel mimari sunar.
+Feza-X, modüler yapısı ve optimize edilmiş veri yolu ile yüksek çözünürlüklü görüntüleme görevleri için düşük maliyetli ve yüksek performanslı bir temel mimari sunar.

@@ -1,6 +1,6 @@
-# Contributing to TerraSense
+# Contributing to Feza-X
 
-Welcome to the TerraSense CubeSat Architecture project! We are excited to have you contribute.
+Welcome to the Feza-X CubeSat Architecture project! We are excited to have you contribute.
 
 ## How to Contribute
 1. Fork the repository.

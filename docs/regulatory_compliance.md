@@ -1,4 +1,4 @@
-# ⚖️ TerraSense: Regulatory & De-orbiting Compliance
+# ⚖️ Feza-X: Regulatory & De-orbiting Compliance
 
 Ensuring the mission adheres to international space laws and sustainability standards.
 

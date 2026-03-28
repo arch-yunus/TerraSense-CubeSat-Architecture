@@ -1,5 +1,5 @@
 """
-TerraSense CubeSat: Ground Station Pass Calculator Template
+Feza-X CubeSat: Ground Station Pass Calculator Template
 Requirements: skyfield, numpy
 """
 

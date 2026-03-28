@@ -1,6 +1,6 @@
-# 🛠️ TerraSense: Assembly, Integration & Test (AIT)
+# 🛠️ Feza-X: Assembly, Integration & Test (AIT)
 
-Procedures for physical assembly and environmental testing of the TerraSense flight model.
+Procedures for physical assembly and environmental testing of the Feza-X flight model.
 
 ## 1. Assembly Sequence
 1.  **Structure Preparation:** Inspect 3U frame for tolerances and clean with IPA.

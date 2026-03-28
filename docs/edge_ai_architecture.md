@@ -1,6 +1,6 @@
-# 🧠 TerraSense: On-board Edge AI Architecture
+# 🧠 Feza-X: On-board Edge AI Architecture
 
-TerraSense utilizes Edge AI to optimize downlink bandwidth by processing images on-board before transmission.
+Feza-X utilizes Edge AI to optimize downlink bandwidth by processing images on-board before transmission.
 
 ## 1. AI Pipeline Overview
 1.  **Cloud Masking:** Detects and flags images with >70% cloud cover to prevent wasting downlink energy.

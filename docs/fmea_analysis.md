@@ -1,6 +1,6 @@
-# ⚠️ TerraSense: Failure Mode & Effects Analysis (FMEA)
+# ⚠️ Feza-X: Failure Mode & Effects Analysis (FMEA)
 
-This document analyzes potential system failures and defines mitigation strategies for the TerraSense mission.
+This document analyzes potential system failures and defines mitigation strategies for the Feza-X mission.
 
 ## 1. Subsystem Failure Matrix
 

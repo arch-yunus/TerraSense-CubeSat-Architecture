@@ -1,6 +1,6 @@
 # 🛰️ Hardware Layout & 3D Structure
 
-This directory contains the physical design, mass budget, and thermal management strategies for the TerraSense 3U CubeSat.
+This directory contains the physical design, mass budget, and thermal management strategies for the Feza-X 3U CubeSat.
 
 ## 📏 3U Form Factor Design
 The satellite follows the standard 10x10x34 cm CubeSat specification.
@@ -15,5 +15,5 @@ The satellite follows the standard 10x10x34 cm CubeSat specification.
 - **Active Monitoring:** Thermistors on battery packs and OBC.
 
 ## 🛠️ CAD Files (Planned)
-- `terrasense_v1_assembly.step`
+- `Feza-X_v1_assembly.step`
 - `structure_exploded_view.pdf`

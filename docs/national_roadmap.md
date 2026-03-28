@@ -1,6 +1,6 @@
-# 🇹🇷 TerraSense: Milli Bileşen ve Entegrasyon Yol Haritası
+# 🇹🇷 Feza-X: Milli Bileşen ve Entegrasyon Yol Haritası
 
-Bu döküman, TerraSense mimarisinin yerli ve milli imkanlarla (Turkish National Space Ecosystem) hayata geçirilmesi için gereken stratejik bileşen eşleşmelerini içerir.
+Bu döküman, Feza-X mimarisinin yerli ve milli imkanlarla (Turkish National Space Ecosystem) hayata geçirilmesi için gereken stratejik bileşen eşleşmelerini içerir.
 
 ## 🚀 Alt Sistem - Yerli Çözüm Ortağı Eşleşmesi
 

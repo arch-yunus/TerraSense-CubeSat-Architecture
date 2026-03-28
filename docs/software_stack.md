@@ -1,4 +1,4 @@
-# 📑 TerraSense: Advanced Software Stack
+# 📑 Feza-X: Advanced Software Stack
 
 The software architecture is based on the NASA Core Flight System (cFS) for high modularity and fault tolerance.
 

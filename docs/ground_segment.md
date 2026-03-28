@@ -1,6 +1,6 @@
-# 🌍 TerraSense: Ground Segment & MCC Interface
+# 🌍 Feza-X: Ground Segment & MCC Interface
 
-The Ground Segment architecture for managing the TerraSense CubeSat mission.
+The Ground Segment architecture for managing the Feza-X CubeSat mission.
 
 ## 1. Mission Control Center (MCC) Architecture
 - **Infrastructure:** Centralized server for TLE (Two-Line Element) tracking and pass prediction.
@@ -9,7 +9,7 @@ The Ground Segment architecture for managing the TerraSense CubeSat mission.
 ## 2. Telemetry & Command Pipeline
 ```mermaid
 graph LR
-    CubeSat[TerraSense CubeSat] <-->|RF Link| GS[Ground Station Antenna]
+    CubeSat[Feza-X CubeSat] <-->|RF Link| GS[Ground Station Antenna]
     GS <-->|TCP/IP| MCC[Mission Control Center]
     MCC -->|Decoding| DB[(Telemetry DB)]
     MCC -->|Web UI| Dashboard[Ops Dashboard]

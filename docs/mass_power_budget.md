@@ -1,4 +1,4 @@
-# ⚖️ TerraSense: Mass & Power Budget Analysis (SWaP)
+# ⚖️ Feza-X: Mass & Power Budget Analysis (SWaP)
 
 ## 1. Mass Budget (3U)
 Total Mass Limit: 4.0 kg (Standard 3U).

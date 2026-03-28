@@ -1,4 +1,4 @@
-# 🧩 TerraSense: Subsystem Specifications (SWaP-C)
+# 🧩 Feza-X: Subsystem Specifications (SWaP-C)
 
 Detailed specifications for the 3U CubeSat modules.
 

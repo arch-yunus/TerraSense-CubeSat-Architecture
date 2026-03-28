@@ -1,5 +1,5 @@
 {
-  "mission": "TerraSense CubeSat",
+  "mission": "Feza-X CubeSat",
   "version": "1.0.0",
   "subsystems": {
     "EPS": {

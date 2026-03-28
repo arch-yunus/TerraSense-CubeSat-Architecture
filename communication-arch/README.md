@@ -1,6 +1,6 @@
 # 📡 Communication & Data Architecture
 
-This directory outlines the internal data bus and external RF links for the TerraSense mission.
+This directory outlines the internal data bus and external RF links for the Feza-X mission.
 
 ## 🖇️ Internal Bus Topology
 - **CAN Bus (System Control):** Used for EPS, ADCS, and OBC telemetry. High fault tolerance and simplified wiring.

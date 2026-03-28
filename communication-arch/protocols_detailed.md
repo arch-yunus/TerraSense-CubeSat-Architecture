@@ -1,4 +1,4 @@
-# 🖇️ TerraSense: Detailed Protocols
+# 🖇️ Feza-X: Detailed Protocols
 
 ## 1. CAN-Bus (LSS - Local System Services)
 Internal health monitoring and simple commands.

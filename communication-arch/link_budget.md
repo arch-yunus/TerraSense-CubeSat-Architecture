@@ -1,4 +1,4 @@
-# 📡 TerraSense: Detailed RF Link Budget
+# 📡 Feza-X: Detailed RF Link Budget
 
 ## 1. UHF/VHF Link (TT&C)
 Used for critical telemetry and command.

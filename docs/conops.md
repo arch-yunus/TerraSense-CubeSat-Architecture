@@ -1,4 +1,4 @@
-# 🎬 TerraSense: Concept of Operations (CONOPS)
+# 🎬 Feza-X: Concept of Operations (CONOPS)
 
 ## 1. Mission Phases
 1.  **Launch & Deployment:** Rocket separation, antenna deployment (monopoles), initial stabilization.

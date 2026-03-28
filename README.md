@@ -1,8 +1,8 @@
 <div align="center">
 
-![TerraSense Banner](assets/banner.png)
+![Feza-X Banner](assets/banner.png)
 
-# 🛰️ TerraSense: Küp Uydu (CubeSat) Sistem Mimarisi Tasarımı
+# 🛰️ Feza-X: Küp Uydu (CubeSat) Sistem Mimarisi Tasarımı
 ### *Milli Uzay Hamlesi Vizyonuyla Geliştirilen 3U Gezgin Platformu*
 
 [![TUA - Astro Hackathon](https://img.shields.io/badge/TUA-Astro_Hackathon-1E3A8A?style=for-the-badge&logo=spaceX)](https://uzay.gov.tr/)
@@ -15,7 +15,7 @@
 ---
 
 ## 1. 📋 Gerekli Girdiler (Required Inputs)
-**TerraSense**, aşağıdaki teknik ve operasyonel isterleri karşılamak üzere optimize edilmiştir:
+**Feza-X**, aşağıdaki teknik ve operasyonel isterleri karşılamak üzere optimize edilmiştir:
 - **Form Faktörü:** 3U Standard CubeSat (10x10x34 cm).
 - **Kütle & Güç:** < 4.0 kg | ~15W Ortalama Üretim.
 - **Yörünge:** 500 km LEO (Sun-Synchronous).
@@ -24,15 +24,15 @@
 ---
 
 ## 2. 🌟 Yüksek Düzey Özet (High-Level Summary)
-**TerraSense**, kısıtlı hacim ve enerji bütçesi altında maksimum veri işleme kabiliyeti sunan bir 3U Küp Uydu mimarisidir. Proje; **NASA-cFS** tabanlı uçuş yazılımı, **On-board Edge AI** işleme ve hibrit veri yolu (CAN/SpaceWire) mimarisi ile klasik küp uydu tasarımlarındaki veri darboğazlarını ve ısıl sorunları ortadan kaldırır.
+**Feza-X**, kısıtlı hacim ve enerji bütçesi altında maksimum veri işleme kabiliyeti sunan bir 3U Küp Uydu mimarisidir. Proje; **NASA-cFS** tabanlı uçuş yazılımı, **On-board Edge AI** işleme ve hibrit veri yolu (CAN/SpaceWire) mimarisi ile klasik küp uydu tasarımlarındaki veri darboğazlarını ve ısıl sorunları ortadan kaldırır.
 
 ---
 
 ## 🏗️ 3. Donanım Mimarisi ve Mekanik Yerleşim (Hardware Architecture)
-TerraSense mimarisinin kalbi, modüler ve yedekli donanım katmanlarından oluşur.
+Feza-X mimarisinin kalbi, modüler ve yedekli donanım katmanlarından oluşur.
 
 ### A. Sistem Mimari Şeması (Master Architecture)
-Aşağıdaki yüksek çözünürlüklü görsel, TerraSense'in donanım katmanlarını ve teknik arayüzlerini şematize etmektedir:
+Aşağıdaki yüksek çözünürlüklü görsel, Feza-X'in donanım katmanlarını ve teknik arayüzlerini şematize etmektedir:
 
 ![Hardware Architecture](assets/hardware_architecture.png)
 
@@ -93,7 +93,7 @@ graph TD
 ## 4. ⚡ Detaylı Elektronik Protokoller
 
 ### A. Güç Dağıtım Mimarisi (Power Distribution)
-TerraSense, çift seviyeli regüle edilmiş bir güç hattı kullanır:
+Feza-X, çift seviyeli regüle edilmiş bir güç hattı kullanır:
 
 ```mermaid
 graph TD
@@ -117,7 +117,7 @@ graph TD
 ## 🧠 5. Teknik Yaklaşım: İleri Seviye Özellikler
 
 ### A. Kenar Yapay Zeka (On-board Edge AI)
-TerraSense, görüntüleri uzayda işleyerek sadece değerli verileri indirmeyi sağlar:
+Feza-X, görüntüleri uzayda işleyerek sadece değerli verileri indirmeyi sağlar:
 
 ![Edge AI Processing](assets/edge_ai.png)
 
@@ -154,7 +154,7 @@ Uydunun yazılım mimarisi, yüksek modülerlik için **NASA Core Flight System 
 ---
 
 ## 🛰️ 9. Misyon Yaşam Döngüsü ve Faz Yönetimi (Mission Lifecycle)
-TerraSense görevi, fırlatmadan görevin sonlandırılmasına kadar 5 ana faza ayrılmıştır:
+Feza-X görevi, fırlatmadan görevin sonlandırılmasına kadar 5 ana faza ayrılmıştır:
 
 1.  **Fırlatma ve İlk Yörünge Fazı (LEOP):**
     - Ayrılma sonrası 30 dk "sessiz mod".
@@ -189,16 +189,16 @@ Uzay ortamının ekstrem sıcaklık farklarına (-50°C ile +80°C) karşı uygu
 
 ---
 
-## 🚀 12. Gelecek Vizyonu: TerraSense Takımyıldızı
-TerraSense-A (Prototip) başarısının ardından hedeflenen yol haritası:
-- **TerraSense-B:** Gelişmiş L Bandı radar (SAR) sensörü entegrasyonu.
-- **TerraSense-C:** Lazer haberleşme (Optical Comms) ile 1Gbps+ veri hızı.
+## 🚀 12. Gelecek Vizyonu: Feza-X Takımyıldızı
+Feza-X-A (Prototip) başarısının ardından hedeflenen yol haritası:
+- **Feza-X-B:** Gelişmiş L Bandı radar (SAR) sensörü entegrasyonu.
+- **Feza-X-C:** Lazer haberleşme (Optical Comms) ile 1Gbps+ veri hızı.
 - **Takımyıldız:** Toplam 12 uydu ile Türkiye üzerinden "Real-time" (15 dk altı) izleme kabiliyeti.
 
 ---
 
 ## 🇹🇷 13. Milli Uzay Vizyonu ve Stratejik Uyum
-TerraSense, Türkiye'nin **10 Yıllık Milli Uzay Programı** hedefleriyle tam uyumlu olarak tasarlanmıştır:
+Feza-X, Türkiye'nin **10 Yıllık Milli Uzay Programı** hedefleriyle tam uyumlu olarak tasarlanmıştır:
 - **Yerlileştirme:** Kritik bileşenlerde ASELSAN, TÜBİTAK UZAY ve ASPİLSAN çözümlerine öncelik veren [Milli Yol Haritası](docs/national_roadmap.md) benimsenmiştir.
 - **Teknolojik Bağımsızlık:** Görüntü işleme ve uçuş yazılımı katmanlarında açık kaynaklı ancak milli modifikasyonlara açık mimariler (NASA-cFS tabanlı) kullanılmıştır.
 - **Sürdürülebilirlik:** Uzay çöpünü minimize eden pasif de-orbit stratejileri ile küresel standartlara uyum sağlanmıştır.
@@ -216,7 +216,7 @@ Proje, mimari dökümantasyonun ötesinde çalıştırılabilir altyapılar suna
 ---
 
 ## 🔬 15. Alt Sistem Teknik Spesifikasyonları (Deep-Dive)
-Aşağıdaki tablolar, TerraSense'in kritik bileşenlerinin mühendislik parametrelerini detaylandırır:
+Aşağıdaki tablolar, Feza-X'in kritik bileşenlerinin mühendislik parametrelerini detaylandırır:
 
 ### Faydalı Yük (Payload) - Optik Sensör
 | Parametre | Değer | Detay |
@@ -237,7 +237,7 @@ Aşağıdaki tablolar, TerraSense'in kritik bileşenlerinin mühendislik paramet
 ---
 
 ## 📝 16. Haberleşme Katmanı ve Yazılım Protokolleri
-TerraSense, alt sistemler arası ve yer-uydu haberleşmesi için **CubeSat Space Protocol (CSP)** kullanır:
+Feza-X, alt sistemler arası ve yer-uydu haberleşmesi için **CubeSat Space Protocol (CSP)** kullanır:
 
 ### CSP Paket Yapısı (Header)
 ```text
@@ -269,7 +269,7 @@ Uydunun montaj ve test süreçleri için gereken profesyonel laboratuvar mimaris
 Reposu içindeki dosyaların görev ve hiyerarşi rehberi:
 
 ```text
-📁 TerraSense-CubeSat-Architecture
+📁 Feza-X-CubeSat-Architecture
 ├── 📁 assets/               # Görsel varlıklar, banner ve MCC mockup
 ├── 📁 communication-arch/    # Telemetri sözlüğü ve Link Budget dökümanları
 ├── 📁 docs/                 # Teknik derinlik, FMEA, AIT ve RTM dosyaları
