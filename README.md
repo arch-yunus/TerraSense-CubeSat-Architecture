@@ -110,7 +110,51 @@ Uydunun yazılım mimarisi, yüksek modülerlik için **NASA Core Flight System 
 
 ---
 
-## 🇹🇷 10. Milli Uzay Vizyonu ve Stratejik Uyum
+## 🛰️ 12. Misyon Yaşam Döngüsü ve Faz Yönetimi (Mission Lifecycle)
+TerraSense görevi, fırlatmadan görevin sonlandırılmasına kadar 5 ana faza ayrılmıştır:
+
+1.  **Fırlatma ve İlk Yörünge Fazı (LEOP):**
+    - Ayrılma sonrası 30 dk "sessiz mod".
+    - Anten ve güneş paneli açılımı (Burn-wire aktivasyonu).
+    - İlk "Beacon" sinyalinin yer istasyonuna iletilmesi.
+2.  **Devreye Alma (Commissioning):**
+    - Alt sistemlerin (EPS, ADCS, OBC) sağlık kontrolleri.
+    - Kamera kalibrasyonu ve Edge AI model doğrulama.
+3.  **Nominal Operasyonlar:**
+    - Günlük 14-16 yörünge turu.
+    - Hedef bölge (Türkiye) üzerinden geçerken görüntüleme ve S-Band veri indirme.
+4.  **Uzatılmış Görev / Deney:**
+    - Yazılım güncellemeleri ile yeni AI modellerinin test edilmesi.
+5.  **Görevin Sonlandırılması (Decommissioning):**
+    - Batarya pasivasyonu ve yörünge düşürme manevraları hazırlığı.
+
+---
+
+## 🌡️ 13. Termal Yönetim ve Kontrol (Thermal Engineering)
+Uzay ortamının ekstrem sıcaklık farklarına (-50°C ile +80°C) karşı uygulanan stratejiler:
+- **Pasif Kontrol:** Alüminyum 7075 şasi üzerine siyah eloksal kaplama ve MLI (Multi-Layer Insulation) battaniyeleri.
+- **Aktif Kontrol:** Batarya blokları ve optik sensörler için entegre termistör kontrollü ısıtıcılar (Heaters).
+- **Isıl Bütçe:** Solar panel yüzeylerindeki ısıyı şasiye ileten yüksek iletkenlikli termal arayüz malzemeleri (TIM).
+
+---
+
+## 🌌 14. Yörünge Dinamiği ve Kapsama (Orbit & Coverage)
+- **Yörünge Tipi:** Güneşe Eşzamanlı Yörünge (SSO).
+- **İrtifa:** 500 km | Eğim (Inclination): 97.4°.
+- **LTAN (Local Time of Ascending Node):** 10:30 (Sabit ışık açısı ile tutarlı görüntüleme için).
+- **Türkiye Kapsaması:** Günde ortalama 2-3 tam geçiş. Ortalama geçiş süresi: 8-10 dakika.
+
+---
+
+## 🚀 15. Gelecek Vizyonu: TerraSense Takımyıldızı
+TerraSense-A (Prototip) başarısının ardından hedeflenen yol haritası:
+- **TerraSense-B:** Gelişmiş L Bandı radar (SAR) sensörü entegrasyonu.
+- **TerraSense-C:** Lazer haberleşme (Optical Comms) ile 1Gbps+ veri hızı.
+- **Takımyıldız:** Toplam 12 uydu ile Türkiye üzerinden "Real-time" (15 dk altı) izleme kabiliyeti.
+
+---
+
+## 🇹🇷 16. Milli Uzay Vizyonu ve Stratejik Uyum
 TerraSense, Türkiye'nin **10 Yıllık Milli Uzay Programı** hedefleriyle tam uyumlu olarak tasarlanmıştır:
 - **Yerlileştirme:** Kritik bileşenlerde ASELSAN, TÜBİTAK UZAY ve ASPİLSAN çözümlerine öncelik veren [Milli Yol Haritası](docs/national_roadmap.md) benimsenmiştir.
 - **Teknolojik Bağımsızlık:** Görüntü işleme ve uçuş yazılımı katmanlarında açık kaynaklı ancak milli modifikasyonlara açık mimariler (NASA-cFS tabanlı) kullanılmıştır.
