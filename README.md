@@ -67,6 +67,7 @@ graph LR
         Payload -->|Raw Data| MassStorage
         MassStorage -->|Processed Info| OBC
     end
+```
 
 ### C. Sistem Bağlantı Mimarisi (Interconnect Architecture)
 Aşağıdaki şema, alt sistemler arasındaki düşük seviyeli (pin-level) donanım arayüzlerini ve veri akış yönlerini göstermektedir:
@@ -115,7 +116,6 @@ graph TD
     EPS ---|Reg 5V| ADCS
     EPS ---|Unreg 12V| SBAND
 ```
-```
 
 ---
 
@@ -158,7 +158,7 @@ Uydunun yazılım mimarisi, yüksek modülerlik için **NASA Core Flight System 
 
 ---
 
-## 🛰️ 12. Misyon Yaşam Döngüsü ve Faz Yönetimi (Mission Lifecycle)
+## 🛰️ 9. Misyon Yaşam Döngüsü ve Faz Yönetimi (Mission Lifecycle)
 TerraSense görevi, fırlatmadan görevin sonlandırılmasına kadar 5 ana faza ayrılmıştır:
 
 1.  **Fırlatma ve İlk Yörünge Fazı (LEOP):**
@@ -178,7 +178,7 @@ TerraSense görevi, fırlatmadan görevin sonlandırılmasına kadar 5 ana faza 
 
 ---
 
-## 🌡️ 13. Termal Yönetim ve Kontrol (Thermal Engineering)
+## 🌡️ 10. Termal Yönetim ve Kontrol (Thermal Engineering)
 Uzay ortamının ekstrem sıcaklık farklarına (-50°C ile +80°C) karşı uygulanan stratejiler:
 - **Pasif Kontrol:** Alüminyum 7075 şasi üzerine siyah eloksal kaplama ve MLI (Multi-Layer Insulation) battaniyeleri.
 - **Aktif Kontrol:** Batarya blokları ve optik sensörler için entegre termistör kontrollü ısıtıcılar (Heaters).
@@ -186,7 +186,7 @@ Uzay ortamının ekstrem sıcaklık farklarına (-50°C ile +80°C) karşı uygu
 
 ---
 
-## 🌌 14. Yörünge Dinamiği ve Kapsama (Orbit & Coverage)
+## 🌌 11. Yörünge Dinamiği ve Kapsama (Orbit & Coverage)
 - **Yörünge Tipi:** Güneşe Eşzamanlı Yörünge (SSO).
 - **İrtifa:** 500 km | Eğim (Inclination): 97.4°.
 - **LTAN (Local Time of Ascending Node):** 10:30 (Sabit ışık açısı ile tutarlı görüntüleme için).
@@ -194,7 +194,7 @@ Uzay ortamının ekstrem sıcaklık farklarına (-50°C ile +80°C) karşı uygu
 
 ---
 
-## 🚀 15. Gelecek Vizyonu: TerraSense Takımyıldızı
+## 🚀 12. Gelecek Vizyonu: TerraSense Takımyıldızı
 TerraSense-A (Prototip) başarısının ardından hedeflenen yol haritası:
 - **TerraSense-B:** Gelişmiş L Bandı radar (SAR) sensörü entegrasyonu.
 - **TerraSense-C:** Lazer haberleşme (Optical Comms) ile 1Gbps+ veri hızı.
@@ -202,7 +202,7 @@ TerraSense-A (Prototip) başarısının ardından hedeflenen yol haritası:
 
 ---
 
-## 🇹🇷 16. Milli Uzay Vizyonu ve Stratejik Uyum
+## 🇹🇷 13. Milli Uzay Vizyonu ve Stratejik Uyum
 TerraSense, Türkiye'nin **10 Yıllık Milli Uzay Programı** hedefleriyle tam uyumlu olarak tasarlanmıştır:
 - **Yerlileştirme:** Kritik bileşenlerde ASELSAN, TÜBİTAK UZAY ve ASPİLSAN çözümlerine öncelik veren [Milli Yol Haritası](docs/national_roadmap.md) benimsenmiştir.
 - **Teknolojik Bağımsızlık:** Görüntü işleme ve uçuş yazılımı katmanlarında açık kaynaklı ancak milli modifikasyonlara açık mimariler (NASA-cFS tabanlı) kullanılmıştır.
@@ -210,16 +210,17 @@ TerraSense, Türkiye'nin **10 Yıllık Milli Uzay Programı** hedefleriyle tam u
 
 ---
 
-## 🛠️ 11. Somut Çıktılar ve Yazılım Araçları
+## 🛠️ 14. Somut Çıktılar ve Yazılım Araçları
 Proje, mimari dökümantasyonun ötesinde çalıştırılabilir altyapılar sunar:
 - **[Telemetri Sözlüğü](communication-arch/telemetry_dictionary.json):** Sistem haberleşme protokolü.
 - **[Yörünge Hesaplayıcı](docs/pass_calculator.py):** Python tabanlı yer istasyonu planlama aracı.
 - **[MCC Docker Ortamı](Dockerfile):** Görev kontrol merkezini tek komutla kuran altyapı (IaC).
 - **[Gereksinim Matrisi (RTM)](docs/requirement_traceability.md):** Mühendislik isterlerinin tam izlenebilirliği.
+- **[Görev Kontrol Paneli Mockup](assets/mission_dashboard.html):** Yer segmenti operasyonları için görsel ve interaktif arayüz tasarımı.
 
 ---
 
-## 🔬 17. Alt Sistem Teknik Spesifikasyonları (Deep-Dive)
+## 🔬 15. Alt Sistem Teknik Spesifikasyonları (Deep-Dive)
 Aşağıdaki tablolar, TerraSense'in kritik bileşenlerinin mühendislik parametrelerini detaylandırır:
 
 ### Faydalı Yük (Payload) - Optik Sensör
@@ -240,7 +241,7 @@ Aşağıdaki tablolar, TerraSense'in kritik bileşenlerinin mühendislik paramet
 
 ---
 
-## 📝 18. Haberleşme Katmanı ve Yazılım Protokolleri
+## 📝 16. Haberleşme Katmanı ve Yazılım Protokolleri
 TerraSense, alt sistemler arası ve yer-uydu haberleşmesi için **CubeSat Space Protocol (CSP)** kullanır:
 
 ### CSP Paket Yapısı (Header)
@@ -254,7 +255,7 @@ Total: 32-bit Header
 
 ---
 
-## 🛠️ 19. Yer Destek Ekipmanları ve AIT Altyapısı (GSE)
+## 🛠️ 17. Yer Destek Ekipmanları ve AIT Altyapısı (GSE)
 Uydunun montaj ve test süreçleri için gereken profesyonel laboratuvar mimarisi:
 
 ### Elektriksel Yer Destek Ekipmanı (EGSE)
@@ -269,7 +270,7 @@ Uydunun montaj ve test süreçleri için gereken profesyonel laboratuvar mimaris
 
 ---
 
-## 📂 20. Proje Dizini ve Dosya Mimarisi
+## 📂 18. Proje Dizini ve Dosya Mimarisi
 Reposu içindeki dosyaların görev ve hiyerarşi rehberi:
 
 ```text
