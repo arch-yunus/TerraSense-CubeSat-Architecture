@@ -205,17 +205,44 @@ Feza-X, Türkiye'nin **10 Yıllık Milli Uzay Programı** hedefleriyle tam uyuml
 
 ---
 
-## 🛠️ 14. Somut Çıktılar ve Yazılım Araçları
+## 🛠️ 14. Somut Çıktılar ve Yazılım Araçları (Titan-Class Ecosystem)
 Proje, mimari dökümantasyonun ötesinde çalıştırılabilir altyapılar sunar:
+- **[Görev Sekansı (JSON)](communication-arch/mission_conops_sequence.json):** Uydunun bir yörünge boyunca yapacağı tüm işlemleri içeren makine tarafından okunabilir görev akışı.
+- **[Yer İstasyonu API (Python)](docs/ground_station_api.py):** Telemetri alımı ve güvenli komut gönderimi için FastAPI tabanlı sunucu iskeleti.
 - **[Telemetri Sözlüğü](communication-arch/telemetry_dictionary.json):** Sistem haberleşme protokolü.
 - **[Yörünge Hesaplayıcı](docs/pass_calculator.py):** Python tabanlı yer istasyonu planlama aracı.
 - **[MCC Docker Ortamı](Dockerfile):** Görev kontrol merkezini tek komutla kuran altyapı (IaC).
 - **[Gereksinim Matrisi (RTM)](docs/requirement_traceability.md):** Mühendislik isterlerinin tam izlenebilirliği.
-- **[Görev Kontrol Paneli Mockup](assets/mission_dashboard.html):** Yer segmenti operasyonları için görsel ve interaktif arayüz tasarımı.
 
 ---
 
-## 🔬 15. Alt Sistem Teknik Spesifikasyonları (Deep-Dive)
+## 🛡️ 15. Siber Güvenlik ve Komuta Şifrelemesi
+Feza-X, komuta zinciri güvenliği için çok katmanlı bir koruma mimarisi kullanır:
+- **Uplink Authentication:** Yer istasyonundan gönderilen her komut, **HMAC-SHA256** algoritması ile imzalanır. Uydu, geçerli bir imza taşımayan komutları reddeder.
+- **Replay Attack Protection:** Her komut paketinde "Anti-replay Counter" ve "Timestamp" bulunur. Eskimiş veya tekrar eden paketler işlenmez.
+- **Downlink Encryption:** Bilimsel veriler ve görüntüler, S-Band üzerinden iletilmeden önce **AES-256-GCM** ile şifrelenir.
+
+---
+
+## 🏗️ 16. Mekanik Arayüz ve ICD (Interface Control Document)
+Uydunun fiziksel entegrasyonu için belirlenen standartlar:
+- **PC104 Bus Standard:** Alt sistemler arası elektriksel ve mekanik istifleme (Stacking).
+- **Malzeme:** Alüminyum 70-75 (Havacılık Sınıfı), korozyona dayanıklı siyah eloksal kaplama.
+- **Toleranslar:** ±0.05 mm (Kritik montaj yüzeyleri için).
+- **Kill-Switch:** Deployer içinden çıkışta sistemi aktive eden çift yedekli mekanik anahtar.
+
+---
+
+## 🌀 17. Çevresel Test Matrisi (Verification)
+Feza-X'in uzay kalifikasyonu için geçmesi gereken test seviyeleri:
+- **Vibration (Sine/Random):** 20Hz - 2000Hz aralığında, RMS: 14.1 G.
+- **Shock:** 1000 G @ 0.5ms (Ayrılma anı simülasyonu).
+- **Thermal Vacuum (TVAC):** 10^-6 Torr basınçta, -40°C ile +85°C arası 8 döngü (Soak test).
+- **EMI/EMC:** MIL-STD-461G uyumlu elektromanyetik uyumluluk testi.
+
+---
+
+## 🔬 18. Alt Sistem Teknik Spesifikasyonları (Deep-Dive)
 Aşağıdaki tablolar, Feza-X'in kritik bileşenlerinin mühendislik parametrelerini detaylandırır:
 
 ### Faydalı Yük (Payload) - Optik Sensör
@@ -265,14 +292,14 @@ Uydunun montaj ve test süreçleri için gereken profesyonel laboratuvar mimaris
 
 ---
 
-## 📂 18. Proje Dizini ve Dosya Mimarisi
+## 📂 21. Proje Dizini ve Dosya Mimarisi
 Reposu içindeki dosyaların görev ve hiyerarşi rehberi:
 
 ```text
 📁 Feza-X-CubeSat-Architecture
 ├── 📁 assets/               # Görsel varlıklar, banner ve MCC mockup
-├── 📁 communication-arch/    # Telemetri sözlüğü ve Link Budget dökümanları
-├── 📁 docs/                 # Teknik derinlik, FMEA, AIT ve RTM dosyaları
+├── 📁 communication-arch/    # Telemetri, Görev Sekansı ve Link Budget
+├── 📁 docs/                 # Teknik derinlik, GS API, FMEA, AIT ve RTM
 ├── 📁 hardware-layout/      # 3U yerleşim planları ve alt sistem spekleri
 ├── 📄 Dockerfile            # Görev kontrol merkezi IaC dökümanı
 ├── 📄 README.md             # Master dökümantasyon (Ana doküman)

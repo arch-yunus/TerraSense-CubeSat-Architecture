@@ -1,0 +1,70 @@
+{
+  "mission_id": "FEZA-X-01",
+  "conops_version": "1.0.0",
+  "orbit_parameters": {
+    "altitude_km": 500,
+    "inclination_deg": 97.4,
+    "period_min": 94.6
+  },
+  "operational_sequence": [
+    {
+      "step": 1,
+      "event": "Sun_Acquisition",
+      "subsystem": "ADCS",
+      "duration_sec": 300,
+      "power_draw_w": 2.5,
+      "condition": "Solar_Panels_Facing_Sun > 90%"
+    },
+    {
+      "step": 2,
+      "event": "Payload_PreHeat",
+      "subsystem": "Thermal",
+      "duration_sec": 600,
+      "power_draw_w": 4.0,
+      "condition": "Sensors_Temp > -10C"
+    },
+    {
+      "step": 3,
+      "event": "Target_Pointing",
+      "subsystem": "ADCS",
+      "duration_sec": 120,
+      "power_draw_w": 6.5,
+      "condition": "Nadir_Pointing_Error < 0.1deg"
+    },
+    {
+      "step": 4,
+      "event": "Image_Capture_Multispectral",
+      "subsystem": "Payload",
+      "duration_sec": 30,
+      "power_draw_w": 12.0,
+      "data_generated_mb": 450,
+      "condition": "Shutter_Sync_OK"
+    },
+    {
+      "step": 5,
+      "event": "Edge_AI_Processing",
+      "subsystem": "OBC_NPU",
+      "duration_sec": 180,
+      "power_draw_w": 8.0,
+      "action": "Cloud_Masking_and_ROI_Detection",
+      "data_reduction_ratio": 0.3
+    },
+    {
+      "step": 6,
+      "event": "Data_Storage_Encryption",
+      "subsystem": "Mass_Storage",
+      "duration_sec": 45,
+      "power_draw_w": 1.5,
+      "protocol": "AES-256-GCM"
+    },
+    {
+      "step": 7,
+      "event": "S-Band_Downlink_Init",
+      "subsystem": "Communication",
+      "duration_sec": 480,
+      "power_draw_w": 15.0,
+      "frequency_mhz": 2405.0,
+      "protocol": "CCSDS_Frame"
+    }
+  ]
+}
