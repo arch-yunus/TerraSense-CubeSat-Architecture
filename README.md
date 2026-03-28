@@ -2,68 +2,58 @@
 
 ![TerraSense Banner](assets/banner.png)
 
-# 🛰️ TerraSense: Yeryüzü Gözlem Küp Uydu (CubeSat) Sistem Mimarisi
+# 🛰️ TerraSense: Küp Uydu (CubeSat) Sistem Mimarisi Tasarımı
 
 [![TUA - Astro Hackathon](https://img.shields.io/badge/TUA-Astro_Hackathon-1E3A8A?style=for-the-badge&logo=spaceX)](https://uzay.gov.tr/)
 [![Category - Engineering](https://img.shields.io/badge/Kategori-Mühendislik_ve_Yazılım-F97316?style=for-the-badge)](https://github.com/topics/aerospace)
 [![Level - Advanced](https://img.shields.io/badge/Zorluk-İleri_Seviye-DC2626?style=for-the-badge)](https://github.com/topics/cubesat)
-[![License - MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 </div>
 
 ---
 
-## 1. 📋 Proje Özeti
-**TerraSense**, yüksek çözünürlüklü yeryüzü gözlem görevleri için 3U form faktöründe tasarlanmış, optimize edilmiş bir Küp Uydu mimarisidir. Sınırlı hacim ve enerji kapasitesi kısıtları altında; modüler donanım istiflenmesi, termal/kütle denge optimizasyonu ve çift bantlı (UHF/VHF & S-Band) kesintisiz veri aktarım topolojisi sunarak, uzay-yer istasyonu arasındaki iletişim darboğazlarını ortadan kaldırmayı hedefler.
+## 1. 📋 Gerekli Girdiler (Required Inputs)
+Projenin hayata geçirilmesi için temel alınan teknik kısıtlar ve operasyonel girdiler:
+- **Form Faktörü:** 3U CubeSat (10x10x34 cm).
+- **Kütle Limiti:** Maksimum 4.0 kg.
+- **Güç Bütçesi:** Ortalama 15W üretim (GaAs solar hücreler).
+- **Yörünge Parametreleri:** 500 km LEO (Düşük Yer Yörüngesi), Sun-Synchronous.
+- **Görev Amacı:** Yüksek çözünürlüklü multispektral yeryüzü gözlemi.
 
 ---
 
-## 2. 🎥 Drive Linki (Proje Demosu)
-> [!IMPORTANT]
-> Aşağıdaki linklerin erişim izni **"Herkese Açık" (Public)** olmalıdır.
-
-*   📽️ **30 Saniyelik Tanıtım Videosu:** [YouTube/Drive Linki Buraya Gelecek]
-*   📊 **Proje Sunum Dosyası (Max 7 Sayfa):** [Google Drive Linki Buraya Gelecek]
+## 2. 🌟 Yüksek Düzey Özet (High-Level Summary)
+**TerraSense**, modüller arası ısıl izolasyon ve hibrit veri yolu mimarisi ile CubeSat sistemlerindeki performans darboğazlarını çözen yenilikçi bir 3U tasarımıdır. "Milli Uzay Hamlesi" vizyonunu temel alan proje; düşük maliyetli, yüksek güvenilirlikli ve hızlı prototiplenebilir bir uzay platformu sunarak Türkiye'nin uzay ekosistemine katkıda bulunmayı hedefler.
 
 ---
 
-## 3. 📂 Proje Dosyası / Linki
-*   💻 **GitHub Kaynak Kod Arşivi:** [Bu Repo Linki]
-*   🏛️ **Ana Proje Klasörü (Drive):** [Tüm Çıktıları İçeren Drive Klasörü Linki]
+## 3. 🛠️ Detaylı Çözüm (Detailed Solution)
+Uydunun donanım iç yerleşimi (Hardware Layout), kütle merkezi ve ısıl dengeye göre 3 ana katmanda kurgulanmıştır:
 
-| Dizin | İçerik |
-| :--- | :--- |
-| [`/hardware-layout`](hardware-layout) | 3U donanım dizilimi, 3D modeller ve termal analizler. |
-| [`/communication-arch`](communication-arch) | Veri akış şemaları ve RF link bütçesi. |
-| [`/docs`](docs) | Sistem tasarım raporları ve teknik dokümantasyon. |
+- **Unit 1 - Güç ve Stabilite:** Batarya blokları ve ADCS modülü (Reaksiyon tekerlekleri). En ağır bileşenler olduğu için stabilite için uydunun altına yerleştirilmiştir.
+- **Unit 2 - Komuta ve Veri İşleme:** OBC (Ana Bilgisayar) ve Transceiver kartları. Isıl açıdan en korunaklı bölge olan merkezde konumlandırılmıştır.
+- **Unit 3 - Görev Yükü (Payload):** CMOS sensör ve lens sistemi. Nadir yüzeye (yere bakan) bakacak şekilde en üstte yerleştirilmiştir.
+
+*Daha fazla detay için:* [`/hardware-layout`](hardware-layout)
 
 ---
 
-## 4. 📝 Proje Detaylı Özet
+## 4. 🛰️ Teknik Yaklaşım (Technical Approach)
+Haberleşme mimarisi; sistem sürekliliği ve yüksek hızlı veri aktarımı için iki katmanlı olarak tasarlanmıştır:
 
-### Problem Tanımı
-Yeryüzü gözlem görevlerinde en büyük zorluk, yüksek çözünürlüklü optik sensörlerin ürettiği devasa verilerin, kısıtlı bant genişliği ve enerjiyle yeryüzüne aktarılmasıdır. Standart küp uydu tasarımlarında veri darboğazları yaşanmakta ve donanım bileşenlerinin hatalı yerleşimi termal arızalara yol açmaktadır.
+- **Dahili Haberleşme:** Kritik sistem telemetrisi için **CAN Bus**, yüksek boyutlu görüntü verileri için ise **SpaceWire/LVDS** protokolleri kullanılarak veri çakışmaları engellenmiştir.
+- **Harici Haberleşme:** TT&C (Telemetri ve Komuta) için güvenilir **UHF/VHF** bandı, bilimsel veri indirme (downlink) için ise yüksek hızlı **S-Band** linki tercih edilmiştir.
 
-### Çözüm: TerraSense Hibrit Mimarisi
-TerraSense, bu problemleri çözmek için disiplinlerarası bir sistem tasarımı yaklaşımı benimser:
+*Teknik rapor ve hesaplamalar için:* [`/communication-arch`](communication-arch)
 
-1.  **Optimize Donanım İstifleme (3U):** Kütle merkezi stabilitesi için EPS ve Bataryalar alt modüle (Unit 1), hassas OBC ve haberleşme kartları orta modüle (Unit 2), görev yükü ise nadir yüzeye bakacak şekilde üst modüle (Unit 3) yerleştirilmiştir.
-2.  **Veri Haberleşme Katmanları:** Hayati telemetri verileri için yüksek güvenilirlikli **CAN Bus**, yüksek boyutlu görüntü verileri için ise **SpaceWire/LVDS** protokolleri kullanılarak veri akışı ayrıştırılmıştır.
-3.  **Çift Bantlı İletişim:** Komuta/Kontrol için UHF/VHF, veri indirme için ise yüksek hızlı S-Band kullanılarak kesintisizlik sağlanmıştır.
+---
 
-### Teknik Platform & Ortam
-- **Form Faktörü:** 3U Standard CubeSat (10x10x34 cm).
-- **Protokoller:** CAN-Bus, SpaceWire, SPI, I2C.
-- **İşletim:** Gerçek zamanlı görev planlama ve hata toleranslı veri yönetimi.
-
-### 📚 Kullanılan Açık Kaynak Veriler & Kaynaklar
-Proje geliştirme sürecinde aşağıdaki açık kaynak dokümantasyon ve verilerden faydalanılmıştır:
-- **NASA State of the Art of Small Spacecraft Technology:** Donanım standartları için.
-- **CCSDS (Consultative Committee for Space Data Systems):** Haberleşme protokol mimarisi için.
-- **ESA Open Source Satellite Initiative:** Sistem tasarımı referansları.
+## 🔗 Bağlantılar & Demos
+*   📽️ **Demo Videosu:** [Drive Linki]
+*   📊 **Proje Sunumu:** [Drive Linki]
+*   📂 **GitHub Kaynak Kod:** [Bu Repo Linki]
 
 ---
 <div align="center">
-  Developed for <b>TUA Astro Hackathon 2026</b><br/>
-  <i>"Milli Uzay Hamlesi Vizyonuyla"</i>
+  Developed for <b>TUA Astro Hackathon 2026</b>
 </div>
