@@ -5,14 +5,23 @@
 # 🛰️ Feza-X: Küp Uydu (CubeSat) Sistem Mimarisi Tasarımı
 ### *Milli Uzay Hamlesi Vizyonuyla Geliştirilen 3U Gezgin Platformu*
 
+[![Mission Status - Active](https://img.shields.io/badge/Mission_Status-Nominal-059669?style=for-the-badge&logo=statuspage)](https://github.com/topics/cubesat)
+[![TRL - 5](https://img.shields.io/badge/TRL-5-3B82F6?style=for-the-badge&logo=rocket)](https://www.nasa.gov/directorates/heo/scan/engineering/technology/technology_readiness_level)
+[![Energy Budget](https://img.shields.io/badge/Power-15W_Avg-FACC15?style=for-the-badge&logo=battery)](https://github.com/topics/aerospace)
+[![Aethel-Class](https://img.shields.io/badge/Class-Aethel_Grand-7C3AED?style=for-the-badge&logo=starship)](https://github.com/topics/engineering)
 [![TUA - Astro Hackathon](https://img.shields.io/badge/TUA-Astro_Hackathon-1E3A8A?style=for-the-badge&logo=spaceX)](https://uzay.gov.tr/)
-[![Category - Engineering](https://img.shields.io/badge/Kategori-Mühendislik_ve_Yazılım-F97316?style=for-the-badge)](https://github.com/topics/aerospace)
-[![Level - Advanced](https://img.shields.io/badge/Zorluk-İleri_Seviye-DC2626?style=for-the-badge)](https://github.com/topics/cubesat)
-[![License - MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-
-</div>
 
 ---
+
+### 🎛️ Mission Control Dashboard (Hızlı Erişim)
+
+| [📊 Analiz](#0--rakip-analizi-ve-stratejik-konumlandırma-competitor-analysis) | [🏗️ Donanım](#🏗️-3-donanım-mimarisi-ve-mekanik-yerleşim-hardware-architecture) | [🧠 Yazılım](#-6-teknik-yaklaşım-ileri-seviye-özellikler) | [📡 Haberleşme](#-22-haberleşme-katmanı-ve-yazılım-protokolleri) |
+| :---: | :---: | :---: | :---: |
+| [⚠️ Riskler](#-7-güvenilirlik-ve-risk-yönetimi-fmea--heatmap) | [🌡️ Termal](#-11-termal-yönetim-ve-kontrol-thermal-engineering) | [🇹🇷 Vizyon](#🇹🇷-14-milli-uzay-vizyonu-ve-stratejik-uyum) | [📁 Dosyalar](#-25-proje-dizini-ve-dosya-mimarisi) |
+
+---
+
+</div>
 
 ## 0. 📊 Rakip Analizi ve Stratejik Konumlandırma (Competitor Analysis)
 Feza-X, küresel açık kaynaklı küp uydu ekosisteminde "Havacılık Sınıfı" (Aethel-Class) güvenilirlik ve "Kenar Yapay Zeka" kabiliyetini birleştiren nadir mimarilerden biridir.
@@ -169,8 +178,22 @@ Feza-X, görüntüleri uzayda işleyerek sadece değerli verileri indirmeyi sağ
 
 ![Edge AI Processing](assets/edge_ai.png)
 
-- **Bulut Eleme:** %70+ bulutlu görüntülerin elenmesi.
-- **ROI Tespiti:** Gemi, araç veya arazi değişikliği tespiti.
+```mermaid
+graph LR
+    Raw[Raw Images] --> Denoise[Noise Reduction]
+    Denoise --> Segment[Cloud Segmentation]
+    Segment -->|Cloudy > 70%| Drop[Discard / Low Res Store]
+    Segment -->|Clear| Model[YOLOv8 Edge Inference]
+    Model --> ROI[ROI Detection: Ships/Planes]
+    ROI --> Compress[Lossless Compression]
+    Compress --> Downlink((S-Band Downlink))
+    
+    style Drop fill:#f99,stroke:#333
+    style Downlink fill:#9f9,stroke:#333
+```
+
+- **Bulut Eleme:** %70+ bulutlu görüntülerin elenmesi ile bant genişliği tasarrufu.
+- **ROI Tespiti:** Gemi, araç veya arazi değişikliği tespiti (Selective Compression).
 - **Donanım:** Integrated NPU (Neural Processing Unit) @ 1.5W Peak.
 
 ### B. Uçuş Yazılım Yığını (NASA-cFS)
@@ -190,11 +213,11 @@ Kritik risklerin olasılık ve etki bazlı 5x5 matris üzerindeki dağılımı:
 
 | Olasılık \ Etki | Önemsiz | Düşük | Orta | Yüksek | Kritik |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Çok Yüksek** | | | | | |
-| **Yüksek** | | | [Termal] | | [Launch] |
-| **Orta** | | [Sensor] | | [SEU] | |
-| **Düşük** | | | [De-orbit] | | |
-| **Çok Düşük** | | | | | |
+| **Çok Yüksek** | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ |
+| **Yüksek** | ⚪ | ⚪ | 🟡 [Termal] | ⚪ | 🔴 [Launch] |
+| **Orta** | ⚪ | 🟢 [Sensor] | ⚪ | 🟠 [SEU] | ⚪ |
+| **Düşük** | ⚪ | ⚪ | 🟢 [De-orbit]| ⚪ | ⚪ |
+| **Çok Düşük** | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ |
 
 *   **[Launch]:** Fırlatma anı yükleri (Kritik/Yüksek).
 *   **[SEU]:** İşlemci hatası (Yüksek/Orta).
@@ -278,19 +301,20 @@ Feza-X, Türkiye'nin **10 Yıllık Milli Uzay Programı** hedefleriyle tam uyuml
 
 ---
 
-## 🛠️ 15. Somut Çıktılar ve Yazılım Araçları (Aethel-Class Grand Ecosystem)
-Proje, mimari dökümantasyonun ötesinde çalıştırılabilir altyapılar sunar:
-- **[Simüle Telemetri Verisi (CSV)](communication-arch/telemetry_history_sim.csv):** Veri analizi ve dashboard testleri için 1000+ satırlık örnek veri seti.
-- **[Link Budget Hesaplayıcı](communication-arch/link_budget_calculator.py):** RF hatları için matematiksel doğrulama aracı.
-- **[ADCS Kontrol Simülatörü](docs/adcs_simulation.py):** PID kontrol algoritması simülasyonu.
-- **[Görev Sekansı (JSON)](communication-arch/mission_conops_sequence.json):** Makine tarafından okunabilir görev akışı.
-- **[FDIR Stratejisi (Markdown)](docs/fdir_strategy.md):** Otonom hata tespit ve kurtarma mantığı.
-- **[CSP Paket Üretici (Python)](communication-arch/csp_packet_generator.py):** İletişim protokolü simülasyon aracı.
-- **[Termal Denge Modeli (Python)](docs/thermal_equilibrium_model.py):** LEO sıcaklık analiz betiği.
-- **[Master ICD (Markdown)](docs/master_icd.md):** Donanım ve yazılım arayüz kontrol dökümanı.
-- **[Yer İstasyonu API (Python)](docs/ground_station_api.py):** FastAPI tabanlı GS backend iskeleti.
-- **[Telemetri Sözlüğü](communication-arch/telemetry_dictionary.json):** Sistem haberleşme protokolü.
-- **[MCC Docker Ortamı](Dockerfile):** Görev kontrol merkezini tek komutla kuran altyapı (IaC).
+## 🛠️ 15. Aethel-Class Grand Ecosystem (Somut Çıktılar)
+
+Proje, sadece teorik bir mimari değil, **mission-ready** bir yazılım ve simülasyon ekosistemi sunar:
+
+| Kategori | Bileşen | Açıklama | Dosya |
+| :--- | :--- | :--- | :--- |
+| **Simülasyon** | 🌡️ Termal Denge | LEO yörünge sıcaklık analiz motoru | [thermal_equilibrium_model.py](docs/thermal_equilibrium_model.py) |
+| **Simülasyon** | 🌀 ADCS Control | 3-eksenli PID yönelim simülatörü | [adcs_simulation.py](docs/adcs_simulation.py) |
+| **Haberleşme** | 📦 CSP Gen | CubeSat Space Protocol paket üretici | [csp_packet_generator.py](communication-arch/csp_packet_generator.py) |
+| **Haberleşme** | 📊 Link Budget | RF hat bütçesi ve S-Band analiz aracı | [link_budget_calculator.py](communication-arch/link_budget_calculator.py) |
+| **Veri** | 📑 Telemetri Sözlüğü | Makine tarafından okunabilir PDU haritası | [telemetry_dictionary.json](communication-arch/telemetry_dictionary.json) |
+| **Mühendislik** | 🛡️ FDIR Strategy | Otonom hata tespit ve kurtarma mantığı | [fdir_strategy.md](docs/fdir_strategy.md) |
+| **Mühendislik** | 📐 Master ICD | Donanım/Yazılım arayüz kontrol dökümanı | [master_icd.md](docs/master_icd.md) |
+| **Altyapı** | 🐳 MCC Docker | Görev Kontrol Merkezi IaC dökümanı | [Dockerfile](Dockerfile) |
 
 ---
 
@@ -310,14 +334,14 @@ Feza-X'in bileşen bazlı operasyonel sıcaklık limitleri ve beklenen ısıl de
 ## 🛡️ 17. Siber Güvenlik ve STRIDE Tehdit Modeli
 Feza-X'in güvenlik mimarisi, Microsoft STRIDE metodolojisi ile analiz edilmiştir:
 
-| Tehdit Katmanı | Tehdit Tipi | Risk / Etki | Önleyici Tedbir |
-| :--- | :--- | :--- | :--- |
-| **Spoofing** | Yer İstasyonu Taklidi | Komuta Yetkisi Kaybı | **HMAC-SHA256 İmzası** |
-| **Tampering** | Paket Manipülasyonu | Uydunun Yanlış Davranışı | **CRC-32 + Signature** |
-| **Repudiation** | İtiraz Edilebilirlik | Log Sahteciliği | Read-only ECC Telemetry Log |
-| **Information** | Veri Sızıntısı | Görüntülerin Çalınması | **AES-256-GCM Şifreleme** |
-| **DoS** | Sinyal Karıştırma | İletişim Kopması | Spread Spectrum / FHSS |
-| **Elevation** | Yetki Yükseltme | Kritik Mod Değişimi | PW Korumalı Safe Mode |
+| Tehdit Katmanı | Tehdit Tipi | Risk / Etki | Önleyici Tedbir | Durum |
+| :--- | :---: | :--- | :--- | :---: |
+| **Spoofing** | Yer İstasyonu Taklidi | Komuta Yetkisi Kaybı | **HMAC-SHA256 İmzası** | ✅ |
+| **Tampering** | Paket Manipülasyonu | Uydunun Yanlış Davranışı | **CRC-32 + Signature** | ✅ |
+| **Repudiation** | İtiraz Edilebilirlik | Log Sahteciliği | Read-only ECC Telemetry Log | ✅ |
+| **Information** | Veri Sızıntısı | Görüntülerin Çalınması | **AES-256-GCM Şifreleme** | ✅ |
+| **DoS** | Sinyal Karıştırma | İletişim Kopması | Spread Spectrum / FHSS | ⚠️ |
+| **Elevation** | Yetki Yükseltme | Kritik Mod Değişimi | PW Korumalı Safe Mode | ✅ |
 
 ---
 
