@@ -14,6 +14,24 @@
 
 ---
 
+## 0. 📊 Rakip Analizi ve Stratejik Konumlandırma (Competitor Analysis)
+Feza-X, küresel açık kaynaklı küp uydu ekosisteminde "Havacılık Sınıfı" (Aethel-Class) güvenilirlik ve "Kenar Yapay Zeka" kabiliyetini birleştiren nadir mimarilerden biridir.
+
+| Özellik | PyCubed (Open Source) | OreSat (Open Source) | Ticari 3U Platformlar | **Feza-X (Aethel-Class)** |
+| :--- | :---: | :---: | :---: | :---: |
+| **Uçuş Yazılımı** | CircuitPython (Temel) | C / Linux (Karmaşık) | Kapalı Kaynak | **NASA-cFS (Profesyonel)** |
+| **Kenar AI** | Yok | Opsiyonel (Harici) | Özel Donanım (Pahalı) | **Entegre (NPU tabanlı)** |
+| **Panel Tipi** | Karmaşık Mekanizmalar | Açılır (Deployable) | Çeşitli | **Gövdeye Entegre (Rijit)** |
+| **Veri Yolu** | I2C / SPI | Card Bus | Kapalı Mimari | **SpaceWire / CAN (Hibrit)** |
+| **FDIR Seviyesi** | Başlangıç | Orta | İleri | **Tam Entegre (L1-L4)** |
+
+### Neden Feza-X?
+1.  **Veri Darboğazı Çözümü:** Rakiplerimiz tüm verileri indirmeye çalışırken, Feza-X bulutlu görüntüleri uzayda eleyerek bant genişliğini %90 verimli kullanır.
+2.  **Mekanik Kararlılık:** Açılır panellerin (deployables) neden olduğu mekanik risk ve atmosferik sürüklenmeyi, gövde entegre panellerle ekarte ettik.
+3.  **Endüstriyel Olgunluk:** Hobi odaklı projelere kıyasla Feza-X, ICD, FDIR ve STRIDE gibi profesyonel mühendislik dökümanlarıyla "görev hazır" (mission-ready) seviyededir.
+
+---
+
 ## 1. 📋 Gerekli Girdiler (Required Inputs)
 **Feza-X**, aşağıdaki teknik ve operasyonel isterleri karşılamak üzere optimize edilmiştir:
 - **Form Faktörü:** 3U Standard CubeSat (10x10x34 cm).
@@ -392,7 +410,7 @@ Reposu içindeki dosyaların görev ve hiyerarşi rehberi:
 
 ---
 
-## 🔗 Bağlantılar & Demos
+## 🔗 26. Bağlantılar & Demos
 *   📽️ **Tanıtım Videosu:** [Drive Linki]
 *   📊 **Proje Sunumu:** [Drive Linki]
 *   📂 **Tüm Çıktılar Arşivi:** [Drive/GitHub Ana Klasör]
